@@ -62,7 +62,9 @@ print(values)
 
 # Load credentials (replacing with the service account file)
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-creds = Credentials.from_service_account_file('D:\H_to_H_Internship_Assignment\service_account.json', scopes=SCOPES)
+
+# service_account.json filename along with its path to be mentioned below 
+creds = Credentials.from_service_account_file('path_name/file_name', scopes=SCOPES)
 
 # Building the service
 service = build('sheets', 'v4', credentials=creds)
@@ -75,7 +77,8 @@ body = {
     'values': values
 }
 result = service.spreadsheets().values().update(
-    spreadsheetId='1S5YWUuUhLxS6sbZIe0gZPJFU3k9ornCNfFyggeYOgsQ',
+    # Spreadsheet ID has to be mentioned below
+    spreadsheetId='spreadsheet_ID',
     range='Sheet1!A1',
     valueInputOption='RAW', 
     body=body
@@ -86,7 +89,8 @@ body = {
     'values': list_of_csv
 }
 result = service.spreadsheets().values().update(
-    spreadsheetId='1S5YWUuUhLxS6sbZIe0gZPJFU3k9ornCNfFyggeYOgsQ',
+    # Spreadsheet ID has to be mentioned below
+    spreadsheetId='spreadsheet_ID',
     range= 'Sheet2!A1',
     valueInputOption='RAW',
     body=body
@@ -97,7 +101,8 @@ body = {
     'values': list_of_csv_1
 }
 result = service.spreadsheets().values().update(
-    spreadsheetId='1S5YWUuUhLxS6sbZIe0gZPJFU3k9ornCNfFyggeYOgsQ',
+    # Spreadsheet ID has to be mentioned below
+    spreadsheetId='spreadsheet_ID',
     range= 'Sheet3!A1',
     valueInputOption='RAW',
     body=body
